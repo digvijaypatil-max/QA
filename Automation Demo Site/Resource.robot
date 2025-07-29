@@ -190,7 +190,52 @@ ${Checkout_Btn}                             //a[@class='checkout-button button a
 #Test-Cases
 ${Home_Btn_Element}                         //a[text()='Home']
 ${Products_link}                            //ul[@class='products']/li
-${New_Arrivals}                             //h2[text()='new arrivals']
+${New_Arrivals}                             //a[@class='woocommerce-LoopProduct-link']//img
+${Selenium_Ruby_Element}                    //h3[text()='Selenium Ruby']
+${Selenium_Ruby_Element_Add_To_Basket_Element}           //button[text()='Add to basket']
+${Description_Element}                                    //a[text()='Description']
+${prodct_des_Element_text}      //div[@id='tab-description']
+${reviews_Element}             //a[text()='Reviews (0)']
+${Review_text}                 //div[@id='comments']/p
+${Product_Name}                //h1[@class='product_title entry-title']
+${Product_Price}               //span[@class='woocommerce-Price-amount amount']
+${View_Basket}                 //a[text()='View Basket']
+${Coupon_Code_Element_link}          //a[text()='Click here to enter your code']
+${Coupon_Code_text_elemnt}           //input[@name='coupon_code']
+${Apply_Coupon_Code_Element}         //input[@name='apply_coupon']
+${TotalAfterCouponCode_Element}       //tr[@class='order-total']//span[@class='woocommerce-Price-amount amount']
+${Add_To_Basket_Thinking_In_Html_Element}           //a[@data-product_id='163']
+${View_Basket_Second_Element}                         //a[@data-product_id='163'] /following-sibling::a[@title='View Basket']
+${Enter_Coupon_Code}                            //input[@name='coupon_code']    
+${Apply_Coupon_Code}         //input[@name='apply_coupon']
+${Error_Msg_Code}           //ul[@class='woocommerce-error']/li
+${Remove_Items}         //a[@class='remove']
+${After_Remove_Items_Element}          //div[@class='woocommerce-message']
+${Quanity_Element}                      //input[@type='number']
+${Update_Basket_Element}                //input[@name='update_cart']
+${After_update_Product_Quantity_amount}       //td[@data-title='Total']//span[contains(@class, 'woocommerce-Price-amount') and contains(text(), '2,000.00')]
+${Click_product_Link}                        //a[text()='Selenium Ruby']
+${First_name}                          //input[@name='billing_first_name']
+${Last_name123}                          //input[@name='billing_last_name']
+${Billing_company_name}               //input[@name='billing_company'] 
+${Email_Address123}                    //input[@name='billing_email'] 
+${Phone_number123}                    //input[@name='billing_phone'] 
+${Country_Element}                    //span[text()='India']
+${Address123}                       //input[@name='billing_address_1'] 
+${Address123}                       //input[@name='billing_address_2'] 
+${BillingCity}                       //input[@name='billing_city']
+${State_Element}                  //span[@id='select2-chosen-2']
+${click_Element_india}                      //div[@id='select2-result-label-2840']/span[@class='select2-match']
+${Postcode}                       //input[@name='billing_postcode']
+${payment_Meyhod}                           //input[@name='payment_method']
+${placeOrder}                          //input[@class='input-radio']/following-sibling::label[@for='payment_method_cod']
+${Label_ping}                  //h3[text()='Additional Information']
+
+
+
+
+
+
 
 
 
@@ -581,7 +626,13 @@ progrressBarss
       Close Browser   
 
 Practice page
-     
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+     Enter User Email id                         dr@123
+      Click on Enter 
+      sleep  2s
+      Click Element               ${practice_Site_Element}    
+      Sleep  10s
      Click Element               ${practice_Site_Element}    
      Sleep  10s     
      Click Element               ${Shop_Btn_Element}  
@@ -595,41 +646,434 @@ Practice page
      Click Element    ${View_Basket_Element}
      sleep  2s
      click Element    ${Checkout_Btn}
-# Home Page with three Sliders only     
-#      Open browser to login the Page              chrome
-#      Verify the title of the page 
-#      Enter User Email id                         dr@123
-#      Click on Enter 
-#      sleep  2s
-#      Click Element               ${practice_Site_Element}    
-#      Sleep  10s     
-#      Click Element               ${Shop_Btn_Element}  
-#      sleep  10s 
-#      Click Element               ${Home_Btn_Element} 
-#      sleep  10s 
-#      Execute Javascript         window.scrollTo(0,500)
-#      ${Slider_Numbers}     Get WebElements    ${Products_link}
-#      Length Should Be    ${Slider_Numbers}    3
-     #Close Browser  
+ Home Page with three Sliders only     
+      Open browser to login the Page              chrome
+     Verify the title of the page 
+     Enter User Email id                         dr@123
+      Click on Enter 
+      sleep  2s
+      Click Element               ${practice_Site_Element}    
+      Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+      sleep  10s 
+      Click Element               ${Home_Btn_Element} 
+     sleep  10s 
+     Execute Javascript         window.scrollTo(0,500)
+      ${Slider_Numbers}     Get WebElements    ${Products_link}
+     Length Should Be    ${Slider_Numbers}    3
 
-#Home page with three Arrivals only
-#      Sleep    5s
-#      Open browser to login the Page              chrome
-#      Verify the title of the page 
-#      Enter User Email id                         dr@123
-#      Click on Enter 
-#      sleep  2s
-#      Click Element               ${practice_Site_Element}    
-#      Sleep  10s     
-#      Click Element               ${Shop_Btn_Element}  
-#      sleep  10s 
-#      Click Element               ${Home_Btn_Element} 
-#      sleep  10s 
-#      Execute Javascript         window.scrollTo(0,500)
-#      ${Arrival_number}     Get WebElements    ${New_Arrivals}
-#      ${count} =  Get Length    ${Arrival_number}
-#     Should Be Equal As Integers    ${count}   3
-         
+
+Home page with three Arrivals only
+      Sleep    5s
+     Open browser to login the Page              chrome
+      Verify the title of the page 
+      Enter User Email id                         dr@123
+      Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+      Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+      sleep  10s 
+      Click Element               ${Home_Btn_Element} 
+      sleep  10s 
+      Execute Javascript         window.scrollTo(0,500)
+      ${Arrival_number}     Get WebElements    ${New_Arrivals}
+      ${count} =  Get Length    ${Arrival_number}
+     Should Be Equal As Integers    ${count}   3
+
+
+Home page - Images in Arrivals should navigate
+       Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+
+
+Home page - Arrivals-Images-Description    
+       Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Click Element    ${Description_Element} 
+    sleep  2s
+    ${Text}=  Get Text    ${prodct_des_Element_text}
+    Log    ${Text}
+
+Home page - Arrivals-Images-Reviews    
+       Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Click Element    ${Description_Element} 
+    sleep  2s
+    ${Text}=  Get Text    ${prodct_des_Element_text}
+    Log    ${Text}
+    Click Element    ${reviews_Element}
+    sleep  2s
+    ${Text}=    Get Text    ${Review_text} 
+    Log      ${Text}
+
+
+Home page - Arrivals-Images-Add to Basket    
+           Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+
+#Test case 8
+Home-Arrivals-Add to Basket-Items    
+     Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+    Click Element    ${View_Basket}
+    sleep  2s
+    Click Element    ${Checkout_Btn}
+    sleep  2s
+
+Home-Arrivals-Add to Basket-Items-Coupon    
+      Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+    Click Element    ${View_Basket}
+    sleep  2s
+    Click Element    ${Checkout_Btn}
+    sleep  2s
+    Click Element   ${Coupon_Code_Element_link}     
+     sleep  2s 
+     [Arguments]             ${Coupon_codes_texts}   
+     Input Text            ${Coupon_Code_text_elemnt}          ${Coupon_codes_texts} 
+      sleep  2s
+     Click Element       ${Apply_Coupon_Code_Element} 
+     sleep  2s
+     Element Should Contain    ${TotalAfterCouponCode_Element}     459
+
+Home-Arrivals-Add to Basket-Items-Coupon value<450     
+           Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element         ${Add_To_Basket_Thinking_In_Html_Element}           
+    sleep  2s
+      Click Element         ${View_Basket_Second_Element}    
+                  
+                       
+       [Arguments]            ${coupon_Code_For_Second_img}                 
+       Input Text             ${Enter_Coupon_Code}        ${coupon_Code_For_Second_img}
+       Click Element          ${Apply_Coupon_Code}
+       sleep   2s
+       ${Text}=    Get Text    ${Error_Msg_Code} 
+       Log   ${Text}
+       Element Should Contain      ${Error_Msg_Code}          ${Text}
+        Log    Coupon not applied as expected because book price < ₹450
+        Capture Page Screenshot
+
+Home-Arrivals-Add to Basket-Items-Remove book        
+          Sleep    5s
+     Open browser to login the Page              chrome
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+    Click Element    ${View_Basket}
+    sleep  2s
+     Click Element    ${Remove_Items}
+     sleep  2s
+     Element Should Contain    ${After_Remove_Items_Element}        Selenium Ruby removed. 
+     Log  Book removed successfully from cart
+
+
+Home-Arrivals-Add to Basket-Items-Add book     
+              Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+    sleep  2s
+    Click Element           ${View_Basket} 
+    [Arguments]       ${Amount_of_Quanity}
+    Input Text    ${Quanity_Element}    ${Amount_of_Quanity}
+    sleep  2s
+    Element Should Be Enabled    ${Update_Basket_Element}
+    Click Element     ${Update_Basket_Element}
+
+
+Home-Arrivals-Add to Basket-Items-Check-out-Book Final price    
+     Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Element Should Contain    ${Product_Name}    Selenium Ruby
+    Element Should Contain    ${Product_Price}    500
+    Log   Book title and price displayed
+    sleep  2s
+    Click Element           ${View_Basket} 
+    sleep  2s
+    Click Element    ${Click_product_Link}   
+
+Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total condition    
+      Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Capture Page Screenshot
+    sleep   2s
+
+18. Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway-Place order	 
+    Sleep    5s
+     Open browser to login the Page              chrome
+     Verify the title of the page 
+    Enter User Email id                         dr@123
+     Click on Enter 
+     sleep  2s
+      Click Element               ${practice_Site_Element}    
+    Sleep  10s     
+     Click Element               ${Shop_Btn_Element}  
+     sleep  10s 
+    Click Element               ${Home_Btn_Element} 
+   sleep  10s 
+   Execute Javascript         window.scrollTo(0,500)
+    ${Arrival_number}     Get WebElements    ${New_Arrivals}
+    ${count} =  Get Length    ${Arrival_number}
+    Wait Until Element Is Visible    ${New_Arrivals}    10s
+    Should Be Equal As Integers    ${count}   3
+    Click Element                      ${Selenium_Ruby_Element}  
+    sleep  2s
+    click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    sleep  2s
+    Capture Page Screenshot
+    sleep   2s
+    Click Element           ${View_Basket}
+    sleep   2s
+    Click Element    ${Checkout_Btn}
+    sleep   2s
+    [Arguments]   ${Fname}     ${lastname}     ${cmpnyname}     ${EmailAddress}      ${phone}       ${Addresss1}        ${Addresss2}        ${billingcty}            ${Postcodes}
+    
+    Input Text    ${First_name}         ${Fname}
+    Input Text    ${Last_name123}        ${lastname}
+    Input Text    ${Billing_company_name}    ${cmpnyname}
+    Input Text    ${Email_Address123}    ${EmailAddress}
+    Input Text    ${Phone_number123}    ${phone}
+    Wait Until Element Is Visible    ${countryelement}    10s
+    #Click Element    ${countryelement}
+   # Wait Until Element Is Visible    ${Label_ping} 
+    #click Element     ${Label_ping}   
+    Input Text    ${Address123}    ${Addresss1} 
+    Input Text    ${Address123}    ${Addresss2}
+    Input Text    ${BillingCity}    ${billingcty}
+    #Click Element    ${StateElement}
+    sleep  2s
+    #Click Element    ${click_Element_india}    
+    Input Text    ${Postcode}    ${Postcodes}
+       Execute Javascript         window.scrollTo(0,500)
+   Click Element           ${payment_Meyhod}     
+   Wait Until Element Is Visible    ${placeOrder}     10s                      
+   Click Element                         ${placeOrder} 
+   
+  
+   
+       
+    
+        
+
+
+      
+     
+          
      
 
 
