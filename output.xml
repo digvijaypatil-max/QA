@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-07-29T15:36:41.564500" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc1" source="d:\RobotFrameWorkPractice\JustPractice\Tc1.robot">
+<test id="s1-t1" name="Handle autosuggestion in google search" line="6">
+<kw name="Count how mant links are preesent in webpage" owner="Resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-29T15:36:42.089751" level="INFO">Opening browser 'chrome' to base url 'https://www.flipkart.com/'.</msg>
+<arg>${Url2}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-29T15:36:42.089285" elapsed="4.884802"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-07-29T15:36:46.976845" level="INFO">Length is 3.</msg>
+<msg time="2025-07-29T15:36:46.978041" level="INFO">${Text} = 3</msg>
+<var>${Text}</var>
+<arg>//a</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-07-29T15:36:46.975570" elapsed="0.003212"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-07-29T15:36:46.980578" level="INFO">3</msg>
+<arg>${Text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-29T15:36:46.979584" elapsed="0.001454"/>
+</kw>
+<status status="PASS" start="2025-07-29T15:36:42.087867" elapsed="4.893590"/>
+</kw>
+<status status="PASS" start="2025-07-29T15:36:42.086608" elapsed="4.897002"/>
+</test>
+<status status="PASS" start="2025-07-29T15:36:41.573419" elapsed="5.423786"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tc1" id="s1" pass="1" fail="0" skip="0">Tc1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

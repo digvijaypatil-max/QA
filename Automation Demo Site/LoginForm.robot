@@ -34,18 +34,18 @@ Valid Login page,User register form,Alerts,Frames
 #     Handle Video
 #     Verify More options from the Page 
 #     progrressBarss
-#    # Practice page
-#     Home page - Images in Arrivals should navigate
-#     Home page - Arrivals-Images-Description 
-#     Home page - Arrivals-Images-Reviews 
-#     Home page - Arrivals-Images-Add to Basket
-#     Home-Arrivals-Add to Basket-Items 
-#     Home-Arrivals-Add to Basket-Items-Coupon      krishnasakinala   
-#     Home-Arrivals-Add to Basket-Items-Coupon value<450       krishnasakinala  
-#     Home-Arrivals-Add to Basket-Items-Remove book
-#     Home-Arrivals-Add to Basket-Items-Add book       4   
-#     Home-Arrivals-Add to Basket-Items-Check-out-Book Final price  
-#     Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total condition 
+   # Practice page
+    Home page - Images in Arrivals should navigate
+    Home page - Arrivals-Images-Description 
+    Home page - Arrivals-Images-Reviews 
+    Home page - Arrivals-Images-Add to Basket
+    Home-Arrivals-Add to Basket-Items 
+    Home-Arrivals-Add to Basket-Items-Coupon      krishnasakinala   
+    Home-Arrivals-Add to Basket-Items-Coupon value<450       krishnasakinala  
+    Home-Arrivals-Add to Basket-Items-Remove book
+    Home-Arrivals-Add to Basket-Items-Add book       4   
+    Home-Arrivals-Add to Basket-Items-Check-out-Book Final price  
+    Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total condition 
      18. Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway-Place order   Divijay     patil     TCCS     ad@123     12345       fcrode       flat101        pune         411015
      
     

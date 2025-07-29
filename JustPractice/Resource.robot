@@ -5,6 +5,7 @@ Library    String
 
 *** Variables ***
 ${Url}                  https://testautomationpractice.blogspot.com/
+${Url2}                 https://www.flipkart.com/
 ${Browser}             chrome
 ${Input_Box}           //input[@class='wikipedia-search-input']
 ${search_Btn}           //input[@class='wikipedia-search-button']
@@ -21,7 +22,8 @@ open Browser and Enter google
 
      ${All_Links}=   Get WebElements    ${Search_Result}
 
-     ${counts_Of_Searches}=  Set Variable    0
+     ${counts_Of_Searches}=  Get Length    ${All_Links}
+     Log   ${counts_Of_Searches}
 
 
      FOR        ${All_Text_result}   IN   @{All_Links}
@@ -32,5 +34,12 @@ open Browser and Enter google
      Log   ${counts_Of_Searches}
      Run Keyword Unless    ${counts_Of_Searches} > 0    Fail    No search results found!
      click link   Google.com  
+
+
+Count how mant links are preesent in webpage 
+        Open Browser    ${Url2}           ${Browser}
+        ${Text}=    Get Length    //a
+        Log   ${Text}
+          
      
 

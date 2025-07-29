@@ -661,6 +661,7 @@ Practice page
      Execute Javascript         window.scrollTo(0,500)
       ${Slider_Numbers}     Get WebElements    ${Products_link}
      Length Should Be    ${Slider_Numbers}    3
+     Close Browser
 
 
 Home page with three Arrivals only
@@ -680,6 +681,7 @@ Home page with three Arrivals only
       ${Arrival_number}     Get WebElements    ${New_Arrivals}
       ${count} =  Get Length    ${Arrival_number}
      Should Be Equal As Integers    ${count}   3
+     Close Browser
 
 
 Home page - Images in Arrivals should navigate
@@ -703,6 +705,7 @@ Home page - Images in Arrivals should navigate
     Click Element                      ${Selenium_Ruby_Element}  
     sleep  2s
     click Element                   ${Selenium_Ruby_Element_Add_To_Basket_Element} 
+    Close Browser
 
 
 Home page - Arrivals-Images-Description    
@@ -731,6 +734,7 @@ Home page - Arrivals-Images-Description
     sleep  2s
     ${Text}=  Get Text    ${prodct_des_Element_text}
     Log    ${Text}
+    Close Browser
 
 Home page - Arrivals-Images-Reviews    
        Sleep    5s
@@ -762,6 +766,7 @@ Home page - Arrivals-Images-Reviews
     sleep  2s
     ${Text}=    Get Text    ${Review_text} 
     Log      ${Text}
+    Close Browser
 
 
 Home page - Arrivals-Images-Add to Basket    
@@ -789,6 +794,7 @@ Home page - Arrivals-Images-Add to Basket
     Element Should Contain    ${Product_Name}    Selenium Ruby
     Element Should Contain    ${Product_Price}    500
     Log   Book title and price displayed
+    Close Browser
 
 #Test case 8
 Home-Arrivals-Add to Basket-Items    
@@ -820,6 +826,7 @@ Home-Arrivals-Add to Basket-Items
     sleep  2s
     Click Element    ${Checkout_Btn}
     sleep  2s
+    Close Browser
 
 Home-Arrivals-Add to Basket-Items-Coupon    
       Sleep    5s
@@ -858,6 +865,7 @@ Home-Arrivals-Add to Basket-Items-Coupon
      Click Element       ${Apply_Coupon_Code_Element} 
      sleep  2s
      Element Should Contain    ${TotalAfterCouponCode_Element}     459
+     Close Browser
 
 Home-Arrivals-Add to Basket-Items-Coupon value<450     
            Sleep    5s
@@ -891,6 +899,7 @@ Home-Arrivals-Add to Basket-Items-Coupon value<450
        Element Should Contain      ${Error_Msg_Code}          ${Text}
         Log    Coupon not applied as expected because book price < ₹450
         Capture Page Screenshot
+        Close Browser
 
 Home-Arrivals-Add to Basket-Items-Remove book        
           Sleep    5s
@@ -922,6 +931,7 @@ Home-Arrivals-Add to Basket-Items-Remove book
      sleep  2s
      Element Should Contain    ${After_Remove_Items_Element}        Selenium Ruby removed. 
      Log  Book removed successfully from cart
+     Close Browser
 
 
 Home-Arrivals-Add to Basket-Items-Add book     
@@ -956,6 +966,7 @@ Home-Arrivals-Add to Basket-Items-Add book
     sleep  2s
     Element Should Be Enabled    ${Update_Basket_Element}
     Click Element     ${Update_Basket_Element}
+    Close Browser
 
 
 Home-Arrivals-Add to Basket-Items-Check-out-Book Final price    
@@ -987,6 +998,7 @@ Home-Arrivals-Add to Basket-Items-Check-out-Book Final price
     Click Element           ${View_Basket} 
     sleep  2s
     Click Element    ${Click_product_Link}   
+    Close Browser
 
 Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total condition    
       Sleep    5s
@@ -1012,6 +1024,7 @@ Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total cond
     sleep  2s
     Capture Page Screenshot
     sleep   2s
+    Close Browser
 
 18. Home-Arrivals-Add to Basket-Items-Check-out-Payment Gateway-Place order	 
     Sleep    5s
@@ -1061,8 +1074,9 @@ Test case 15. Home-Arrivals-Add to Basket-Items-Check-out-Total & Sub-total cond
     Input Text    ${Postcode}    ${Postcodes}
        Execute Javascript         window.scrollTo(0,500)
    Click Element           ${payment_Meyhod}     
-   Wait Until Element Is Visible    ${placeOrder}     10s                      
+   Wait Until Element Is Visible    ${placeOrder}     15s                      
    Click Element                         ${placeOrder} 
+   Close Browser
    
   
    
