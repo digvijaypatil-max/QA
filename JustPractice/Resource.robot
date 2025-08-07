@@ -1,6 +1,8 @@
 *** Settings ***
 Library   SeleniumLibrary
 Library    String
+Library    RequestsLibrary
+Library    Collections
 
 
 *** Variables ***
@@ -40,6 +42,10 @@ Count how mant links are preesent in webpage
         Open Browser    ${Url2}           ${Browser}
         ${Text}=    Get Length    //a
         Log   ${Text}
+
+
+
+        
           
      
 
