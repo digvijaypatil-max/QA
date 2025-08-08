@@ -15,7 +15,8 @@ ${id1}      101
 create sessions
     Create Session    Session    ${URL}
 create sessions1 and verify Send get request and verify actual status_code,content and headers and expected status_code,content and headers
-    ${Auth}=     Create List      Digvijay     dp123
+    [Arguments]                   ${Username}      ${Password}
+    ${Auth}=     Create List      ${Username}      ${Password}
     Create Session    Session    ${URL}       auth=${Auth}
     ${Response}=    Get Request    Session    /products/${id}   
     Log    Status Code: ${Response.status_code}
