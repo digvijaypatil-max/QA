@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-08-12T11:54:33.961020" rpa="false" schemaversion="5">
+<suite id="s1" name="Putrequest" source="d:\RobotFrameWorkPractice\ApiAutomation\Putrequest.robot">
+<test id="s1-t1" name="Put request" line="13">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.381973" level="INFO">${Headers} = {'Authorization': 'Bearer ugfuiaigfefgeuff'}</msg>
+<var>${Headers}</var>
+<arg>Authorization=Bearer ${Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.381118" elapsed="0.003099"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-12T11:54:34.385408" level="INFO">Creating Session using : alias=Session, url=https://dummyjson.com, headers={'Authorization': 'Bearer ugfuiaigfefgeuff'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Session</arg>
+<arg>${URL}</arg>
+<arg>headers=${Headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-12T11:54:34.384900" elapsed="0.000863"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.386769" level="INFO">${UpdateBody} = {'userId': '45', 'id': '101', 'title': ' I am Digvijay and i am a Billonare', 'body': 'After having money we can buy a harrier stealth editionuser'}</msg>
+<var>${UpdateBody}</var>
+<arg>userId=45</arg>
+<arg>id=101</arg>
+<arg>title= I am Digvijay and i am a Billonare</arg>
+<arg>body=After having money we can buy a harrier stealth editionuser</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.386399" elapsed="0.000497"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.387675" level="INFO">${Header} = {'Content-Type': 'application/json'}</msg>
+<var>${Header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.387398" elapsed="0.000399"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2025-08-12T11:54:34.388413" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2025-08-12T11:54:34.824388" level="INFO">PUT Request : url=https://dummyjson.com/posts/9001 
+ path_url=/posts/9001 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer ugfuiaigfefgeuff', 'Content-Type': 'application/json', 'Content-Length': '148'} 
+ body=b'{"userId": "45", "id": "101", "title": " I am Digvijay and i am a Billonare", "body": "After having money we can buy a harrier stealth editionuser"}' 
+ </msg>
+<msg time="2025-08-12T11:54:34.825409" level="INFO">PUT Response : url=https://dummyjson.com/posts/9001 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '216', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 12 Aug 2025 06:24:45 GMT', 'Etag': 'W/"d8-1+zXie1DUHJh76CA21eZ/FX1BEI"', 'Server': 'railway-edge', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': '2BVYD42dTICAFCaBDcO5xA', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1754979894', 'X-Xss-Protection': '1; mode=block'} 
+ body={"id":101,"title":" I am Digvijay and i am a Billonare","body":"After having money we can buy a harrier stealth editionuser","userId":"45","tags":["classic","crime","english"],"reactions":{"likes":1341,"dislikes":6}} 
+ </msg>
+<msg time="2025-08-12T11:54:34.826105" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-12T11:54:34.828260" level="INFO">${PutRequestRespone} = &lt;Response [200]&gt;</msg>
+<var>${PutRequestRespone}</var>
+<arg>Session</arg>
+<arg>/posts/${id1}</arg>
+<arg>json=${UpdateBody}</arg>
+<arg>headers=${Header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.388249" elapsed="0.441760"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.835604" level="INFO">200</msg>
+<arg>${PutRequestRespone.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.833103" elapsed="0.003192"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.842329" level="INFO">{"id":101,"title":" I am Digvijay and i am a Billonare","body":"After having money we can buy a harrier stealth editionuser","userId":"45","tags":["classic","crime","english"],"reactions":{"likes":1341,"dislikes":6}}</msg>
+<arg>${PutRequestRespone.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.838582" elapsed="0.004876"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-12T11:54:34.849709" level="INFO">{'Access-Control-Allow-Origin': '*', 'Content-Length': '216', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 12 Aug 2025 06:24:45 GMT', 'Etag': 'W/"d8-1+zXie1DUHJh76CA21eZ/FX1BEI"', 'Server': 'railway-edge', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': '2BVYD42dTICAFCaBDcO5xA', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1754979894', 'X-Xss-Protection': '1; mode=block'}</msg>
+<arg>${PutRequestRespone.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.846028" elapsed="0.004328"/>
+</kw>
+<status status="PASS" start="2025-08-12T11:54:34.379927" elapsed="0.471751"/>
+</test>
+<test id="s1-t2" name="Get Request" line="23">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-12T11:54:34.856472" level="INFO">Creating Session using : alias=Session, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Session</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-12T11:54:34.855962" elapsed="0.001094"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-12T11:54:34.858172" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-12T11:54:35.290601" level="INFO">GET Request : url=https://dummyjson.com/posts/101 
+ path_url=/posts/101 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-12T11:54:35.293167" level="INFO">GET Response : url=https://dummyjson.com/posts/101 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '344', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 12 Aug 2025 06:24:45 GMT', 'Etag': 'W/"158-Ntkz78ti+9fjnxvWNHIetasp298"', 'Server': 'railway-edge', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/asia-southeast1-eqsg3a', 'X-Railway-Request-Id': 'o6p3Ghj9TdyqdOOKDcO5xA', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1754979896', 'X-Xss-Protection': '1; mode=block'} 
+ body={"id":101,"title":"All Hallows Day: grief comes in waves.","body":"t threatens to capsize him. He doesn't believe that the dead come back; but that doesn't stop him from feeling the brush of their fingertips, wingtips, against his shoulder.","tags":["classic","crime","english"],"reactions":{"likes":1341,"dislikes":6},"views":4695,"userId":72} 
+ </msg>
+<msg time="2025-08-12T11:54:35.294257" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-12T11:54:35.298680" level="INFO">${ResponsePost} = &lt;Response [200]&gt;</msg>
+<var>${ResponsePost}</var>
+<arg>Session</arg>
+<arg>https://dummyjson.com/posts/${id2}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-12T11:54:34.857874" elapsed="0.441870"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-12T11:54:35.304314" level="INFO">200</msg>
+<arg>${ResponsePost.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-12T11:54:35.301882" elapsed="0.003155"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-12T11:54:35.309383" level="INFO">{"id":101,"title":"All Hallows Day: grief comes in waves.","body":"t threatens to capsize him. He doesn't believe that the dead come back; but that doesn't stop him from feeling the brush of their fingertips, wingtips, against his shoulder.","tags":["classic","crime","english"],"reactions":{"likes":1341,"dislikes":6},"views":4695,"userId":72}</msg>
+<arg>${ResponsePost.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-12T11:54:35.307220" elapsed="0.002917"/>
+</kw>
+<status status="PASS" start="2025-08-12T11:54:34.855000" elapsed="0.457096"/>
+</test>
+<status status="PASS" start="2025-08-12T11:54:33.968289" elapsed="1.352763"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Putrequest" id="s1" pass="2" fail="0" skip="0">Putrequest</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-12T11:54:34.388413" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2025-08-12T11:54:34.858172" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>

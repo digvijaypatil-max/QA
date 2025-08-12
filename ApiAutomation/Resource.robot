@@ -3,11 +3,11 @@ Library    RequestsLibrary
 Library    Collections
 
 *** Variables ***
-${URL}       https://dummyjson.com
-${id}        1
+${URL}         https://dummyjson.com
+${id}          1
 ${category}    beauty
-${URL2}      https://jsonplaceholder.typicode.com
-${id1}      101
+${URL2}        https://jsonplaceholder.typicode.com
+${id1}         101
 
 
 
@@ -51,12 +51,14 @@ Delete from the server
 Update request using put request  
       Create Session       Session2       ${URL2}
       ${Update_Body}=  Create Dictionary      userId=4199   id= 501   title= Digvijay Is Billonare        body=After having money we can buy a Rolls Royce stealth edition 
-       ${header}=    create Dictionary     Content-Type=application/json       
+      ${header}=    create Dictionary     Content-Type=application/json       
       ${Put_Request}=    Put Request    Session2    /posts/${id1}     json=${Update_Body}    headers=${Header}
       Log     Status code: ${Put_Request.status_code}
      Log     Content: ${Put_Request.text}
      Log     Headers: ${Put_Request.headers}
      Should Be Equal As Integers    ${Put_Request.status_code}    500
+
+
 
 
 
