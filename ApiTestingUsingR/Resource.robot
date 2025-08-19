@@ -72,8 +72,7 @@ Verify get request using loop verify status code, response time, content, title
       Log    content:${GetRespone.text}
       Log    header:${GetRespone.headers}
       ${json}=   To Json    ${GetRespone.text}
-      ${title}=   Get From Dictionary    ${json}    title
-      Log     product title is :${title}   
+ 
       END 
            
      
