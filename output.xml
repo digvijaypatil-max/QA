@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-08-19T14:06:37.186647" rpa="false" schemaversion="5">
+<suite id="s1" name="ApiTestingE2E" source="d:\RobotFrameWorkPractice\ApiTestingUsingR\ApiTestingE2E.robot">
+<test id="s1-t1" name="Verify End to End Api testing" line="7">
+<kw name="Create new request , verify status code, response time" owner="Resource">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-08-19T14:06:37.610480" level="INFO">${Auth} = ['Digvijay', 'patil']</msg>
+<var>${Auth}</var>
+<arg>${Username}</arg>
+<arg>${Password}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-08-19T14:06:37.610132" elapsed="0.002121"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:37.613031" level="INFO">Creating Session using : alias=Api, url=https://dummyjson.com, headers={},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x000001D53288BCB0&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Api</arg>
+<arg>${URl}</arg>
+<arg>auth=${Auth}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T14:06:37.612518" elapsed="0.001063"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:37.614679" level="INFO">${Body} = {'userId': '1001', 'id': ' 501', 'title': ' Harrier', 'body': 'Yes i have car and it is harrier'}</msg>
+<var>${Body}</var>
+<arg>userId=1001</arg>
+<arg>id= 501</arg>
+<arg>title= Harrier</arg>
+<arg>body=Yes i have car and it is harrier</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:37.614023" elapsed="0.000842"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:37.615423" level="INFO">${header} = {'Content Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:37.615106" elapsed="0.000443"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:37.615817" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-19T14:06:38.662609" level="INFO">POST Request : url=https://dummyjson.com/products/add 
+ path_url=/products/add 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content Type': 'application/json', 'Content-Length': '97', 'Content-Type': 'application/json', 'Authorization': 'Basic RGlndmlqYXk6cGF0aWw='} 
+ body=b'{"userId": "1001", "id": " 501", "title": " Harrier", "body": "Yes i have car and it is harrier"}' 
+ </msg>
+<msg time="2025-08-19T14:06:38.663862" level="INFO">POST Response : url=https://dummyjson.com/products/add 
+ status=201, reason=Created 
+ headers={'Date': 'Tue, 19 Aug 2025 08:36:47 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-qgaWWIREt5Y6+wnkyrMgY928hXA"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/europe-west4-drams3a', 'X-Railway-Request-Id': 'NpfmnI0jRNGhVuKiN8N_Fg', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755592610', 'X-Xss-Protection': '1; mode=block', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=TLIUgiW%2FOkQntn5lXXOZS9Xm4gBtuxQioTmuH6BO%2F7wk6isfzegfTyxhLk00WK4VJrmyC4si3SLrMfHhQqbxz%2BU%2BJcNKC0QrTkAlFl4%3D"}]}', 'CF-RAY': '97185340390493fb-LHR', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":195,"title":" Harrier"} 
+ </msg>
+<msg time="2025-08-19T14:06:38.664876" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-19T14:06:38.670254" level="INFO">${PostResponse} = &lt;Response [201]&gt;</msg>
+<var>${PostResponse}</var>
+<arg>Api</arg>
+<arg>/products/add</arg>
+<arg>json=${Body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-08-19T14:06:37.615704" elapsed="1.055518"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:38.675850" level="INFO">201</msg>
+<arg>${PostResponse.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.672680" elapsed="0.003991"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-08-19T14:06:38.681270" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${PostResponse.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.677526" elapsed="0.005097"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:38.686632" level="INFO">1.044023&lt;2</msg>
+<arg>${PostResponse.elapsed.total_seconds()}&lt;2</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.683769" elapsed="0.003620"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:38.690568" level="INFO">{"id":195,"title":" Harrier"}</msg>
+<arg>${PostResponse.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.688311" elapsed="0.002920"/>
+</kw>
+<arg>Digvijay</arg>
+<arg>patil</arg>
+<status status="PASS" start="2025-08-19T14:06:37.609388" elapsed="1.082488"/>
+</kw>
+<kw name="Verify get request verify status code, response time, content, title" owner="Resource">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:38.701259" level="INFO">Creating Session using : alias=Api, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Api</arg>
+<arg>${URl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T14:06:38.697513" elapsed="0.005753"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:38.704983" level="INFO">${headers} = {'Authorization': 'Bearerertyuikuydfgh567'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer${Token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.703929" elapsed="0.001413"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:38.706201" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-19T14:06:39.672489" level="INFO">GET Request : url=https://dummyjson.com/products/5 
+ path_url=/products/5 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-19T14:06:39.673417" level="INFO">GET Response : url=https://dummyjson.com/products/5 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 19 Aug 2025 08:36:48 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=hwfK7xe%2BFzzkMHCEXt8hL46pVYhfBRFW7LF1DR%2Fg05glQgnCDBk6jCkoroAJ5nk3pHDQ7WJNucWPE%2FUogYBOFUPKKGQ%2Foryb%2Fzir8rc%3D"}]}', 'Etag': 'W/"5a0-ZsnaKl/vlj79H+5kfeS/7ZcH6is"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/europe-west4-drams3a', 'X-Railway-Request-Id': 'en5UvE6jTYqcUnqPjUJq2g', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755592611', 'X-Xss-Protection': '1; mode=block', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '97185346fbdf6427-LHR', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":5,"title":"Red Nail Polish","description":"The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.","category":"beauty","price":8.99,"discountPercentage":11.44,"rating":4.32,"stock":79,"tags":["beauty","nail polish"],"brand":"Nail Couture","sku":"BEA-NAI-NAI-005","weight":8,"dimensions":{"width":21.63,"height":16.48,"depth":29.84},"warrantyInformation":"1 month warranty","shippingInformation":"Ships overnight","availabilityStatus":"In Stock","reviews":[{"rating":2,"comment":"Poor quality!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Benjamin Wilson","reviewerEmail":"benjamin.wilson@x.dummyjson.com"},{"rating":5,"comment":"Great product!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Liam Smith","reviewerEmail":"liam.smith@x.dummyjson.com"},{"rating":1,"comment":"Very unhappy with my purchase!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Clara Berry","reviewerEmail":"clara.berry@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":22,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"4063010628104","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"} 
+ </msg>
+<msg time="2025-08-19T14:06:39.674627" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-19T14:06:39.678407" level="INFO">${GetRespone} = &lt;Response [200]&gt;</msg>
+<var>${GetRespone}</var>
+<arg>Api</arg>
+<arg>/products/5</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-19T14:06:38.705858" elapsed="0.973474"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.684645" level="INFO">Statuscode:200</msg>
+<arg>Statuscode:${GetRespone.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.681540" elapsed="0.003840"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.688214" level="INFO">content:{"id":5,"title":"Red Nail Polish","description":"The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.","category":"beauty","price":8.99,"discountPercentage":11.44,"rating":4.32,"stock":79,"tags":["beauty","nail polish"],"brand":"Nail Couture","sku":"BEA-NAI-NAI-005","weight":8,"dimensions":{"width":21.63,"height":16.48,"depth":29.84},"warrantyInformation":"1 month warranty","shippingInformation":"Ships overnight","availabilityStatus":"In Stock","reviews":[{"rating":2,"comment":"Poor quality!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Benjamin Wilson","reviewerEmail":"benjamin.wilson@x.dummyjson.com"},{"rating":5,"comment":"Great product!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Liam Smith","reviewerEmail":"liam.smith@x.dummyjson.com"},{"rating":1,"comment":"Very unhappy with my purchase!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Clara Berry","reviewerEmail":"clara.berry@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":22,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"4063010628104","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"}</msg>
+<arg>content:${GetRespone.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.686006" elapsed="0.002631"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.690133" level="INFO">header:{'Date': 'Tue, 19 Aug 2025 08:36:48 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=hwfK7xe%2BFzzkMHCEXt8hL46pVYhfBRFW7LF1DR%2Fg05glQgnCDBk6jCkoroAJ5nk3pHDQ7WJNucWPE%2FUogYBOFUPKKGQ%2Foryb%2Fzir8rc%3D"}]}', 'Etag': 'W/"5a0-ZsnaKl/vlj79H+5kfeS/7ZcH6is"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/europe-west4-drams3a', 'X-Railway-Request-Id': 'en5UvE6jTYqcUnqPjUJq2g', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755592611', 'X-Xss-Protection': '1; mode=block', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '97185346fbdf6427-LHR', 'alt-svc': 'h3=":443"; ma=86400'}</msg>
+<arg>header:${GetRespone.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.689050" elapsed="0.001428"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:39.691066" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-19T14:06:39.694043" level="INFO">To JSON using : content={"id":5,"title":"Red Nail Polish","description":"The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.","category":"beauty","price":8.99,"discountPercentage":11.44,"rating":4.32,"stock":79,"tags":["beauty","nail polish"],"brand":"Nail Couture","sku":"BEA-NAI-NAI-005","weight":8,"dimensions":{"width":21.63,"height":16.48,"depth":29.84},"warrantyInformation":"1 month warranty","shippingInformation":"Ships overnight","availabilityStatus":"In Stock","reviews":[{"rating":2,"comment":"Poor quality!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Benjamin Wilson","reviewerEmail":"benjamin.wilson@x.dummyjson.com"},{"rating":5,"comment":"Great product!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Liam Smith","reviewerEmail":"liam.smith@x.dummyjson.com"},{"rating":1,"comment":"Very unhappy with my purchase!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Clara Berry","reviewerEmail":"clara.berry@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":22,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"4063010628104","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"} </msg>
+<msg time="2025-08-19T14:06:39.694414" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-19T14:06:39.694831" level="INFO">${json} = {'id': 5, 'title': 'Red Nail Polish', 'description': 'The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality fini...</msg>
+<var>${json}</var>
+<arg>${GetRespone.text}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.690828" elapsed="0.004245"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-08-19T14:06:39.696113" level="INFO">${title} = Red Nail Polish</msg>
+<var>${title}</var>
+<arg>${json}</arg>
+<arg>title</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.695476" elapsed="0.000928"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.697757" level="INFO">product title is :Red Nail Polish</msg>
+<arg>product title is :${title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.697226" elapsed="0.000867"/>
+</kw>
+<status status="PASS" start="2025-08-19T14:06:38.694685" elapsed="1.003828"/>
+</kw>
+<kw name="Put Request verify status code,response time" owner="Resource">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:39.701080" level="INFO">Creating Session using : alias=Api, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Api</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T14:06:39.700522" elapsed="0.000996"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.702365" level="INFO">${UpdateBody} = {'title': 'Rolls-Royce', 'description': 'Updated via Robot Framework'}</msg>
+<var>${UpdateBody}</var>
+<arg>title=Rolls-Royce</arg>
+<arg>description=Updated via Robot Framework</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.701869" elapsed="0.001188"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:39.703868" level="INFO">${Header} = {'Content-Type': 'application/json'}</msg>
+<var>${Header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.703479" elapsed="0.000570"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:40.628848" level="INFO">PUT Request : url=https://dummyjson.com/products/5 
+ path_url=/products/5 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '70'} 
+ body=b'{"title": "Rolls-Royce", "description": "Updated via Robot Framework"}' 
+ </msg>
+<msg time="2025-08-19T14:06:40.629696" level="INFO">PUT Response : url=https://dummyjson.com/products/5 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 19 Aug 2025 08:36:49 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"167-NNisRgiFVLewdVPyGCOxQNSuGNU"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/europe-west4-drams3a', 'X-Railway-Request-Id': '2vH042zEQn2FjJ-rN8N_Fg', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755592610', 'X-Xss-Protection': '1; mode=block', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Uw5fVl0wXTrft64QBiREg9hbKQKlM6XhpWLLuJuQEhs8sJNGcSn%2F%2FrtTZ6hpiH%2FztFSmgw96svNG1Ct5OwQYVr3hNtNoGYBS0zoDSy4%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9718534cd9835eef-LHR', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":5,"title":"Rolls-Royce","price":8.99,"discountPercentage":11.44,"stock":79,"rating":4.32,"images":["https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp","description":"Updated via Robot Framework","brand":"Nail Couture","category":"beauty"} 
+ </msg>
+<msg time="2025-08-19T14:06:40.630781" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-19T14:06:40.634940" level="INFO">${PutRequestRespone} = &lt;Response [200]&gt;</msg>
+<var>${PutRequestRespone}</var>
+<arg>Api</arg>
+<arg>/products/5</arg>
+<arg>json=${UpdateBody}</arg>
+<arg>headers=${Header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-19T14:06:39.704306" elapsed="0.931255"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:40.637799" level="INFO">200</msg>
+<arg>${PutRequestRespone.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.636307" elapsed="0.001900"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-08-19T14:06:40.639798" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${PutRequestRespone.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.638684" elapsed="0.001420"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:40.641401" level="INFO">0.922197&lt;2</msg>
+<arg>${PutRequestRespone.elapsed.total_seconds()}&lt;2</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.640452" elapsed="0.001076"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:40.642132" level="INFO">{"id":5,"title":"Rolls-Royce","price":8.99,"discountPercentage":11.44,"stock":79,"rating":4.32,"images":["https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp","description":"Updated via Robot Framework","brand":"Nail Couture","category":"beauty"}</msg>
+<arg>${PutRequestRespone.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.641677" elapsed="0.000586"/>
+</kw>
+<status status="PASS" start="2025-08-19T14:06:39.699706" elapsed="0.942689"/>
+</kw>
+<kw name="Delete Request verify status code and response" owner="Resource">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:40.643421" level="INFO">Creating Session using : alias=Api, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Api</arg>
+<arg>${URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-19T14:06:40.643136" elapsed="0.000595"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-19T14:06:40.644173" level="INFO">${Headers} = {'Content-Type': 'application/json'}</msg>
+<var>${Headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.643922" elapsed="0.000361"/>
+</kw>
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2025-08-19T14:06:40.644566" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2025-08-19T14:06:41.621435" level="INFO">DELETE Request : url=https://dummyjson.com/products/1 
+ path_url=/products/1 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-08-19T14:06:41.622348" level="INFO">DELETE Response : url=https://dummyjson.com/products/1 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 19 Aug 2025 08:36:50 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=fG%2BBElvBFK5i6q5PAx9X13bYQhInXHxs9KHwffeHunuMD5fpT9MKQkjXx%2BPOYlkNRzfRG%2BjRieseiMEwlfttHVJ6MenhxUnCyR5vYa8%3D"}]}', 'Etag': 'W/"61e-0bLVetDNVJFwtQXfhR7VN5EJDp4"', 'Server': 'cloudflare', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Dns-Prefetch-Control': 'off', 'X-Download-Options': 'noopen', 'X-Frame-Options': 'SAMEORIGIN', 'X-Powered-By': 'Cats on Keyboards', 'X-Railway-Edge': 'railway/europe-west4-drams3a', 'X-Railway-Request-Id': 'Fapj6bapSmK1IX3-N8N_Fg', 'X-Ratelimit-Limit': '100', 'X-Ratelimit-Remaining': '99', 'X-Ratelimit-Reset': '1755592620', 'X-Xss-Protection': '1; mode=block', 'Cf-Cache-Status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': '97185352dda379c3-LHR', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":1,"title":"Essence Mascara Lash Princess","description":"The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.","category":"beauty","price":9.99,"discountPercentage":10.48,"rating":2.56,"stock":99,"tags":["beauty","mascara"],"brand":"Essence","sku":"BEA-ESS-ESS-001","weight":4,"dimensions":{"width":15.14,"height":13.08,"depth":22.99},"warrantyInformation":"1 week warranty","shippingInformation":"Ships in 3-5 business days","availabilityStatus":"In Stock","reviews":[{"rating":3,"comment":"Would not recommend!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"},{"rating":4,"comment":"Very satisfied!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Lucas Gordon","reviewerEmail":"lucas.gordon@x.dummyjson.com"},{"rating":5,"comment":"Highly impressed!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":48,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"5784719087687","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp","isDeleted":true,"deletedOn":"2025-08-19T08:36:49.862Z"} 
+ </msg>
+<msg time="2025-08-19T14:06:41.623668" level="INFO">C:\Users\digvijay.p\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'dummyjson.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-19T14:06:41.626014" level="INFO">${Delete_Response} = &lt;Response [200]&gt;</msg>
+<var>${Delete_Response}</var>
+<arg>Api</arg>
+<arg>/products/1</arg>
+<arg>headers=${Headers}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2025-08-19T14:06:40.644457" elapsed="0.982110"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:41.628614" level="INFO">200</msg>
+<arg>${Delete_Response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:41.627217" elapsed="0.001798"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-08-19T14:06:41.631393" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${Delete_Response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-08-19T14:06:41.629576" elapsed="0.002213"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T14:06:41.633435" level="INFO">{"id":1,"title":"Essence Mascara Lash Princess","description":"The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.","category":"beauty","price":9.99,"discountPercentage":10.48,"rating":2.56,"stock":99,"tags":["beauty","mascara"],"brand":"Essence","sku":"BEA-ESS-ESS-001","weight":4,"dimensions":{"width":15.14,"height":13.08,"depth":22.99},"warrantyInformation":"1 week warranty","shippingInformation":"Ships in 3-5 business days","availabilityStatus":"In Stock","reviews":[{"rating":3,"comment":"Would not recommend!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"},{"rating":4,"comment":"Very satisfied!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Lucas Gordon","reviewerEmail":"lucas.gordon@x.dummyjson.com"},{"rating":5,"comment":"Highly impressed!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":48,"meta":{"createdAt":"2025-04-30T09:41:02.053Z","updatedAt":"2025-04-30T09:41:02.053Z","barcode":"5784719087687","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp","isDeleted":true,"deletedOn":"2025-08-19T08:36:49.862Z"}</msg>
+<arg>${Delete_Response.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T14:06:41.632232" elapsed="0.001651"/>
+</kw>
+<status status="PASS" start="2025-08-19T14:06:40.642817" elapsed="0.991371"/>
+</kw>
+<status status="PASS" start="2025-08-19T14:06:37.608517" elapsed="4.026731"/>
+</test>
+<status status="PASS" start="2025-08-19T14:06:37.191316" elapsed="4.446347"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="ApiTestingE2E" id="s1" pass="1" fail="0" skip="0">ApiTestingE2E</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-19T14:06:37.169193" level="WARN">Error in file 'd:\RobotFrameWorkPractice\ApiTestingUsingR\ApiTestingE2E.robot' on line 6: Singular section headers like '*** Test case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
+<msg time="2025-08-19T14:06:37.615817" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-19T14:06:38.706201" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-19T14:06:39.691066" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-19T14:06:40.644566" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+</errors>
+</robot>

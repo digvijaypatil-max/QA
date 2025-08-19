@@ -5,7 +5,7 @@ Library   Collections
 
 *** Variables ***
 ${URL}        https://dummyjson.com
-${Title}     Strawberry
+${Title}        Strawberry
 ${Title25}      Tissue Paper Box
 ${Username}   Digvijay
 ${Password}   Patil
