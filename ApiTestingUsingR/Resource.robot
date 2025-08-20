@@ -5,15 +5,14 @@ Library    Collections
 Resource    ../ApiAutomation/Resource.robot
 
 *** Variables ***
-${URl}               https://dummyjson.com
-#${Username}         Digvijay
-#${Password}         Patil
-${Token}             ertyuikuydfgh567
-${id}                15
+${URl}                https://dummyjson.com
+#${Username}          Digvijay
+#${Password}          Patil
+${Token}              ertyuikuydfgh567
+${id}                 15
 ${id1}                501
-${Api_Key}       123derffg
-@{Product_Id}      1 2 3 4 5 6 7
-
+${Api_Key}            123derffg
+@{Product_Id}         1 2 3 4 5 6 7
 
 *** Keywords ***
 Create new request , verify status code, response time
@@ -21,12 +20,20 @@ Create new request , verify status code, response time
      ${Auth}=   Create List     ${Username}     ${Password}
      Create Session    Api    ${URl}     auth=${Auth}
      ${Body}=  Create Dictionary    userId=1001   id= 501   title= Harrier       body=Yes i have car and it is harrier
-     ${header}=   Create Dictionary    Content Type=application/json
+     ${header}=   Create Dictionary    Content-Type=application/json
      ${PostResponse}=     Post Request    Api   /products/add     json=${Body}    headers=${header}
      Log    ${PostResponse.status_code}
      Should Be Equal As Integers    ${PostResponse.status_code}    201
      Log     ${PostResponse.elapsed.total_seconds()}<2
      Log      ${PostResponse.text}
+     ${json}=  To Json    ${PostResponse.text}
+     ${Postid}=  Get From Dictionary    ${json}        id
+      Log    ${Postid}
+
+      ${ResponsefromPostRequest}=    Get Request    Api    products/${Postid}
+      Log   ${ResponsefromPostRequest.status_code}
+      Log   ${ResponsefromPostRequest.elapsed.total_seconds()}<2
+      Log   ${ResponsefromPostRequest.text}
 
 Verify get request verify status code, response time, content, title     
       Create Session    Api    ${URl}
@@ -49,8 +56,6 @@ Put Request verify status code,response time
      Log     ${PutRequestRespone.elapsed.total_seconds()}<2
      Log      ${PutRequestRespone.text}
 
-
-
 Delete Request verify status code and response
     Create Session    Api    ${URL}
     ${Headers}=    Create Dictionary    Content-Type=application/json
@@ -59,20 +64,55 @@ Delete Request verify status code and response
     Should Be Equal As Integers    ${Delete_Response.status_code}    200
     Log    ${Delete_Response.text}
 
-
-
-
 Verify get request using loop verify status code, response time, content, title     
       Create Session    Api    ${URl}
       ${headers}=   Create Dictionary     Authorization=Bearer${Token}
-
       FOR   ${id}   IN   @{Product_Id}
       ${GetRespone}=    Get Request    Api    /products/${id}
       Log    Statuscode:${GetRespone.status_code}
       Log    content:${GetRespone.text}
       Log    header:${GetRespone.headers}
       ${json}=   To Json    ${GetRespone.text}
- 
       END 
+
+Extracting the json products
+      Create Session    Api    ${URL}
+      ${GetResponse}=    Get Request    APi   /products/10
+      Log    Content:${GetResponse.text}
+      ${Json}=   To Json    ${GetResponse.text}
+      ${title}=  Get From Dictionary    ${Json}    title
+      Log   ${title}     
+      ${id}=     Get From Dictionary    ${Json}    id  
+      Should Be Equal As Strings    ${id}     10
+      Should Be Equal As Strings    ${json["reviewes"],["rating"]}    1
+      Dictionary Should Contain Key    ${Json}    title  
+      
+Path parameter
+      Create Session    Api    ${URL}
+      ${GetResponse}=    Get Request    APi   /products/10
+      Log    Content:${GetResponse.text}
+
+Query parameter
+      ${params}=    Create Dictionary       limit=3
+       Create Session    Api    ${URL}
+      ${GetResponse}=    Get Request    APi       /products       params=${params}
+      Log    Content:${GetResponse.text}
            
+Send Custom Headers
+    ${headers}=   Create Dictionary     Content-Type=multipart/form-data    Accept-Encoding=gzip
+     Create Session    Api    ${URL}
+     ${GetResponse}=    Get Request    APi       /products/5       headers=${headers}
+    Log    Content:${GetResponse.text}
+
+Sending files 
+       Create Session    Api    ${URL}
+       ${files}=    Create Dictionary    file=@${CURDIR}/D:\RobotFrameWorkPractice\sample.text.txt
+      ${resp}=    POST On Session    Api    /post    files=${files}
+      Log    ${resp.json()}
+
+      
      
+
+
+
+            
