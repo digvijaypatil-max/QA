@@ -12,8 +12,7 @@ ${URL1}         https://rahulshettyacademy.com/AutomationPractice/
 ${All_Countries}       //div[@class='ui-menu-item-wrapper']
 ${Suggestion_Box}          //input[@id='autocomplete']
 ${Country_Name}          Ba
-${To_Select_Country}      Barbados
-
+${To_Select_Country}      barbados
 
 *** Keywords ***
 Launch Browser and Navigate to Website 
@@ -37,6 +36,7 @@ Handeling Auto suggestion
       Log    ${Counting_Elements}
       Log    ${name}
       END
+      ${Counting_Elements}    Evaluate    ${Counting_Elements} + 1
       Log    ${Counting_Elements}
       
 
