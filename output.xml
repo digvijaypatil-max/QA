@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on win32)" generated="2025-08-21T17:07:56.103055" rpa="false" schemaversion="5">
+<suite id="s1" name="Resource" source="d:\RobotFrameWorkPractice\AutomationPanda\Resource.robot">
+<test id="s1-t1" name="Test" line="45">
+<kw name="Handeling Auto suggestion">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:07:56.505288" level="INFO">Opening browser 'Chrome' to base url 'https://rahulshettyacademy.com/AutomationPractice/'.</msg>
+<arg>${URL1}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-21T17:07:56.504828" elapsed="4.494651"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:01.003875" level="INFO">Clicking element '//input[@id='autocomplete']'.</msg>
+<arg>//input[@id='autocomplete']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:01.002709" elapsed="0.462355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:01.467587" level="INFO">Typing text 'Ba' into text field '//input[@id='autocomplete']'.</msg>
+<arg>${Suggestion_Box}</arg>
+<arg>${Country_Name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:01.465685" elapsed="0.137956"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Suggestion_Box}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-21T17:08:01.604134" elapsed="0.024604"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${All_Countries}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-21T17:08:01.629186" elapsed="0.499542"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.150489" level="INFO">${Elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.47")&gt;, &lt;selenium.webdriv...</msg>
+<var>${Elements}</var>
+<arg>${All_Countries}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.129336" elapsed="0.022092"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.153948" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.153261" elapsed="0.001013"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.190050" level="INFO">${name} = Albania</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.154745" elapsed="0.035603"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.190767" elapsed="0.001061"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.192327" elapsed="0.000710"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.194248" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.193486" elapsed="0.001051"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.195542" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.194980" elapsed="0.000902"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.196795" level="INFO">Albania</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.196305" elapsed="0.000820"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.47")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.152747" elapsed="0.044640"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.199812" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.198393" elapsed="0.002152"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.222400" level="INFO">${name} = Antigua and Barbuda</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.202453" elapsed="0.020202"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.223112" elapsed="0.000948"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.224542" elapsed="0.000890"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.227108" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.226097" elapsed="0.001355"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.228835" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.228088" elapsed="0.001256"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.230731" level="INFO">Antigua and Barbuda</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.229992" elapsed="0.001096"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.48")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.197959" elapsed="0.033448"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.234197" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.232928" elapsed="0.001746"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.253099" level="INFO">${name} = Aruba</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.235140" elapsed="0.018416"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.254595" elapsed="0.001212"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.256525" elapsed="0.000944"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.259195" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.258118" elapsed="0.001495"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.260875" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.260176" elapsed="0.001849"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.263456" level="INFO">Aruba</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.262716" elapsed="0.001142"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.49")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.232167" elapsed="0.031975"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.266785" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.265272" elapsed="0.002727"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.372430" level="INFO">${name} = Azerbaijan</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.268642" elapsed="0.104174"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.373350" elapsed="0.000887"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.374828" elapsed="0.000993"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.377588" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.376497" elapsed="0.001336"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.378674" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.378196" elapsed="0.000809"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.379879" level="INFO">Azerbaijan</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.379428" elapsed="0.000821"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.50")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.264776" elapsed="0.115769"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.381901" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.381402" elapsed="0.000743"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.413048" level="INFO">${name} = Bahamas</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.382565" elapsed="0.030906"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.414240" elapsed="0.001162"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.416291" elapsed="0.001646"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.419150" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.418460" elapsed="0.000996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.420446" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.419916" elapsed="0.000858"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.421684" level="INFO">Bahamas</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.421192" elapsed="0.000841"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.51")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.381030" elapsed="0.041273"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.423790" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.423247" elapsed="0.000821"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.440935" level="INFO">${name} = Bahrain</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.424501" elapsed="0.016683"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.441502" elapsed="0.000796"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.442841" elapsed="0.000704"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.445300" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.444429" elapsed="0.001176"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.446602" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.446065" elapsed="0.000872"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.447853" level="INFO">Bahrain</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.447362" elapsed="0.000824"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.52")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.422824" elapsed="0.025628"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.451479" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.450134" elapsed="0.001775"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.468817" level="INFO">${name} = Bangladesh</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.452407" elapsed="0.016651"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.469336" elapsed="0.000439"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.470118" elapsed="0.001145"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.473148" level="INFO">${Counting_Elements} = 1</msg>
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.471987" elapsed="0.001609"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.475109" level="INFO">1</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.474313" elapsed="0.001322"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.477077" level="INFO">Bangladesh</msg>
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.476312" elapsed="0.001313"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.53")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.448979" elapsed="0.029344"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.480577" level="INFO">${Counting_Elements} = 0</msg>
+<var>${Counting_Elements}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.479784" elapsed="0.001288"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.497468" level="INFO">${name} = Barbados</msg>
+<var>${name}</var>
+<arg>${All_Elements}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.481747" elapsed="0.016086"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-21T17:08:02.500927" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.54")&gt;'.</msg>
+<arg>${All_Elements}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.499876" elapsed="0.186574"/>
+</kw>
+<arg>'${name}'.startswith ('${Country_Name}') and '${name}' == '${To_Select_Country}'</arg>
+<arg>Click Element</arg>
+<arg>${All_Elements}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.498407" elapsed="0.188286"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.687592" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.687385" elapsed="0.000412"/>
+</kw>
+<arg>'${name}' == '${To_Select_Country}'</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.686937" elapsed="0.001022"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${Counting_Elements}</var>
+<arg>${Counting_Elements} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-21T17:08:02.688176" elapsed="0.000127"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-21T17:08:02.688496" elapsed="0.000107"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-21T17:08:02.688780" elapsed="0.000106"/>
+</kw>
+<var name="${All_Elements}">&lt;selenium.webdriver.remote.webelement.WebElement (session="3dd4288f1a28e3be6f57639e8d45429b", element="f.5CAE7738D058DA25B6A8E62DE9BDE5AF.d.4C073BD0CFEE124C884C625D5DF2525E.e.54")&gt;</var>
+<status status="PASS" start="2025-08-21T17:08:02.479059" elapsed="0.209942"/>
+</iter>
+<var>${All_Elements}</var>
+<value>@{Elements}</value>
+<status status="PASS" start="2025-08-21T17:08:02.151924" elapsed="0.537227"/>
+</for>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T17:08:02.689632" level="INFO">0</msg>
+<arg>${Counting_Elements}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T17:08:02.689371" elapsed="0.000424"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:07:56.503464" elapsed="6.186490"/>
+</kw>
+<status status="PASS" start="2025-08-21T17:07:56.502155" elapsed="6.188356"/>
+</test>
+<status status="PASS" start="2025-08-21T17:07:56.108813" elapsed="6.583740"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Resource" id="s1" pass="1" fail="0" skip="0">Resource</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-21T17:07:56.489468" level="ERROR">Error in file 'd:\RobotFrameWorkPractice\AutomationPanda\Resource.robot' on line 3: Error in file 'd:\RobotFrameWorkPractice\AutomationPanda\Resource.robot' on line 44: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>

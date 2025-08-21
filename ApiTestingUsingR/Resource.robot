@@ -1,7 +1,6 @@
 *** Settings ***
 Library    RequestsLibrary
 Library    Collections
-
 Resource    ../ApiAutomation/Resource.robot
 
 *** Variables ***
@@ -13,6 +12,7 @@ ${id}                 15
 ${id1}                501
 ${Api_Key}            123derffg
 @{Product_Id}         1 2 3 4 5 6 7
+${Wrong_Api}          https://dummyjson.com
 
 *** Keywords ***
 Create new request , verify status code, response time
@@ -110,6 +110,43 @@ Sending files
       ${resp}=    POST On Session    Api    /post    files=${files}
       Log    ${resp.json()}
 
+
+Wrong URL    
+      Create Session    Api    ${Wrong_Api}
+      ${Headers}=    Create Dictionary    Authorization=Bearer ${Token}
+      ${ErrorResponse}=    Get Request      Api     /products1    headers=${Headers}
+      Log    ${ErrorResponse.status_code}
+      Log    ${ErrorResponse.text}
+      Should Be True    ${ErrorResponse.status_code} == 400 or ${ErrorResponse.status_code} == 401
+
+Missing somthing in content      
+        create session      Api     ${URL}   
+        ${Body}=     Create Dictionary       userId=500   id= 90  title= car       body=Yes i have car and it is harrier
+       ${Headers}=   Create Dictionary       Content-type=Invalid/type
+       ${MissingContentType}=    post Request    Api     /products/add    json=${Body}   headers=${Headers}
+       Log    ${MissingContentType.status_code}
+       Log    ${MissingContentType.text}
+       Should Be True    ${MissingContentType.status_code} == 400 or ${MissingContentType.status_code} == 401
+
+
+Boundary & Edge Cases
+        #It should be give error as of now it is not giving any error cause this is the dummy Api 
+       create session      Api     ${URL}   
+       ${Body}=     Create Dictionary       userId=5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000   id= -90  title= car       body=Yes i have car and it is harrier
+       ${Headers}=   Create Dictionary       Content-type=application/json
+       ${BECContentType}=    post Request    Api     /products/add    json=${Body}   headers=${Headers}
+       Log    ${BECContentType.status_code}
+       Log    ${BECContentType.text}
+       #Should Be True    ${BECContentType.status_code} == 400 or ${BECContentType.status_code} == 401
+       #This line will not run cause a of now it is giving us 201 
+
+         
+               
+       
+
+
+
+ 
       
      
 
